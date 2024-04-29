@@ -128,7 +128,7 @@ void printSortedGroupDescending(const GroupStudent& obj, float minAverageMark)
 
 	for (int i = 0; i < result.currCount - 1; i++)
 	{
-		for (int j = i; j < result.currCount; j++)
+		for (int j = i; j < result.currCount - 1; j++)
 		{
 			if (result.students[j].averageMark < result.students[j + 1].averageMark)
 			{
