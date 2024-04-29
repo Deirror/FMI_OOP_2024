@@ -122,14 +122,43 @@ struct GroupStudent
 	}
 };
 
+void printSortedGroupDescending(const GroupStudent& obj, float minAverageMark)
+{
+	GroupStudent result = obj;
+
+	for (int i = 0; i < result.currCount - 1; i++)
+	{
+		for (int j = i; j < result.currCount; j++)
+		{
+			if (result.students[j].averageMark < result.students[j + 1].averageMark)
+			{
+				std::swap(result.students[j], result.students[j + 1]);
+			}
+		}
+	}
+
+	for (int i = 0; i < result.currCount - 1; i++)
+	{
+		if (result.students[i].averageMark >= minAverageMark)
+		{
+			result.students[i].printStudent();
+		}
+		else
+		{
+			break;
+		}
+	}
+}
 
 int main()
 {
 	GroupStudent group;
 
-	group.initGroup(2);
+	group.initGroup(3);
 
 	std::cout << group.getStudentsWithScholarship(2.50);
 
+	printSortedGroupDescending(group, 3.0);
+	
 	return 0;
 }
