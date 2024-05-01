@@ -29,8 +29,8 @@ void free(char** placeHolders, char** values, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
-		delete placeHolders[i];
-		delete values[i];
+		delete[] placeHolders[i];
+		delete[] values[i];
 	}
 
 	delete[] placeHolders;
