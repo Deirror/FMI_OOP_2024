@@ -51,6 +51,9 @@ void StringVector::pop_back()
 		throw std::exception("Empty");
 
 	_strings[_size--] = nullptr;
+
+	if (roundToPowerOfTwo(_size) != _capacity)
+		resize(roundToPowerOfTwo(_size));
 }
 
 void StringVector::insert(const String& string, size_t index)
@@ -84,6 +87,9 @@ void StringVector::erase(size_t index)
 	_strings[_size - 1] = nullptr;
 
 	_size--;
+
+	if (roundToPowerOfTwo(_size) != _capacity)
+		resize(roundToPowerOfTwo(_size));
 }
 
 void StringVector::clear()
@@ -91,6 +97,8 @@ void StringVector::clear()
 	delete[] _strings;
 
 	_size = 0;
+
+	_capacity = 0;
 
 	resize(DEFUALT_CAPACITY);
 }
@@ -121,6 +129,14 @@ size_t StringVector::getSize() const
 	return _size;
 }
 
+void StringVector::debug() const
+{
+	for (int i = 0; i < _size; i++)
+	{
+		_strings[i].debug();
+	}
+}
+
 void StringVector::free()
 {
 	delete[] _strings;
@@ -144,9 +160,6 @@ void StringVector::copyFrom(const StringVector & other)
 
 void StringVector::resize(size_t newCapacity)
 {
-	if (newCapacity <= _capacity)
-		return;
-
 	String* newStrings = new String[newCapacity]{};
 
 	for (int i = 0; i < _size; i++)

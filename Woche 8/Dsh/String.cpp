@@ -58,7 +58,7 @@ String & String::operator=(const String & other)
 
 String & String::operator+=(const String & other)
 {
-	if (_length + other._length >= _capacity)
+	if (_length + other._length > _capacity)
 		resize(_length + other._length);
 
 	size_t index = 0;
@@ -116,6 +116,11 @@ String::String(size_t stringLength)
 	_string = new char[_capacity + 1] {};
 
 	_length = 0;
+}
+
+void String::debug() const
+{
+	std::cout << _string << std::endl;
 }
 
 void String::free()

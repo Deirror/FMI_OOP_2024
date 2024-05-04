@@ -9,11 +9,18 @@ int main()
 	sv.push_back("Alls");
 	sv.push_back("Allz");
 
-	std::cout << sv[2];
-
 	sv.insert("As", 0);
 
-	sv.erase(1);
+	sv.push_back("Allzsz679");
+	sv.push_back("Allzsz6791");
+	sv.push_back("Allzsz672");
+	sv.push_back("Allzsz6723");
+	sv.push_back("Allzsz6723ds");
+
+	sv.erase(0);
+	sv.erase(0);
+
+	sv.debug();
 
 	return 0;
 }

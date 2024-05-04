@@ -1,6 +1,6 @@
 #pragma once
 #include "String.h"
-#define DEFUALT_CAPACITY 8
+
 
 class StringVector
 {
@@ -32,6 +32,8 @@ public:
 
 	bool empty();
 	size_t getSize() const;
+
+	void debug() const;
 
 private:
 	void free();

@@ -17,9 +17,10 @@ public:
 	String(const String& other);
 	String& operator=(const String& other);
 
+    ~String();
+
 	String& operator+=(const String& other);
 
-    ~String();
 
 	const char* c_string() const;
 	size_t getCapacity() const;
@@ -31,6 +32,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const String& obj);
 	friend std::istream& operator>>(std::istream& is, String& ref);
 	friend String operator+(const String& lhs, const String& rhs);
+
+	void debug() const;
 
 private:
 	void free();
