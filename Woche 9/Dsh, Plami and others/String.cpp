@@ -8,7 +8,7 @@ static unsigned roundToPowerOfTwo(int index)
 {
 	short times = 3;
 
-	while (index - (1 << times++) >= 0);
+	while (index - (1 << times++) > 0);
 
 	return (1 << --times);
 }
