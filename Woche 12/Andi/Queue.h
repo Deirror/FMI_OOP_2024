@@ -1,6 +1,6 @@
 #pragma once
 #include <exception>
-
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! This version is the slowest, but the easiest !!!!!!!!!!!!!!!!!!
 template <typename T>
 class Queue
 {
